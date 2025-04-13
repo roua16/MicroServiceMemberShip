@@ -1,0 +1,48 @@
+<div class="container">
+    <h2>Update Membership</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="mb-3">
+        <label>Fees</label>
+        <input type="number" [(ngModel)]="membership.fees" name="fees" class="form-control" required>
+      </div>
+  
+      <div class="mb-3">
+        <label>Payment Method</label>
+        <select [(ngModel)]="membership.paymentMethod" name="paymentMethod" class="form-select" required>
+          <option *ngFor="let method of ['CREDIT_CARD','PAYPAL','BANK_TRANSFER','MOBILE_PAYMENT','CRYPTO','CASH']" [value]="method">{{ method }}</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label>Subscription Plan</label>
+        <select [(ngModel)]="membership.subscriptionPlan" name="subscriptionPlan" class="form-select" required>
+            <option *ngFor="let plan of ['FREE','MONTHLY','QUARTERLY','YEARLY','PAY_PER_COURSE']" [value]="plan">{{ plan }}</option>
+          </select>
+      </div>
+  
+      <div class="mb-3">
+        <label>Membership Type</label>
+        <select [(ngModel)]="membership.membershipType" name="membershipType" class="form-select" required>
+          <option *ngFor="let type of ['PREMIUM','BASIC','ENTERPRISE']" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+  
+      <div class="mb-3">
+        <label>Start Date</label>
+        <input type="date" [(ngModel)]="membership.start_date" name="start_date" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label>Status</label>
+        <input  [(ngModel)]="membership.status" name="status" class="form-control" required>
+      </div>
+  
+      <div class="mb-3">
+        <label>End Date</label>
+        <input type="date" [(ngModel)]="membership.end_date" name="end_date" class="form-control" required>
+      </div>
+  
+      <button type="submit" class="btn btn-success">Update</button>
+      <!-- <button type="button" class="btn btn-secondary" (click)="this.router.navigate(['/DisplayMemberShips'])">Cancel</button> -->
+    </form>
+  </div>
+  

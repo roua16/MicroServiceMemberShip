@@ -1,0 +1,53 @@
+<div class="container mt-5">
+    <h2>Créer un Membership</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label>Frais</label>
+        <input type="number" class="form-control" [(ngModel)]="membership.fees" name="fees" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Méthode de paiement</label>
+        <select class="form-control" [(ngModel)]="membership.paymentMethod" name="paymentMethod" required>
+          <option *ngFor="let method of paymentMethods" [value]="method">{{ method }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label>Statut</label>
+        <input type="text" class="form-control" [(ngModel)]="membership.status" name="status" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Date de début</label>
+        <input type="date" class="form-control" [(ngModel)]="membership.start_date" name="start_date" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Date de fin</label>
+        <input type="date" class="form-control" [(ngModel)]="membership.end_date" name="end_date" required>
+      </div>
+  
+      <div class="form-group">
+        <label>Type d’abonnement</label>
+        <select class="form-control" [(ngModel)]="membership.membershipType" name="membershipType" required>
+          <option *ngFor="let type of membershipTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label>Plan d’abonnement</label>
+        <select class="form-control" [(ngModel)]="membership.subscriptionPlan" name="subscriptionPlan" required>
+          <option *ngFor="let plan of subscriptionPlans" [value]="plan">{{ plan }}</option>
+        </select>
+      </div>
+  
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" [(ngModel)]="membership.archived" name="archived">
+        <label class="form-check-label">Archivé</label>
+      </div>
+  
+      <button type="submit" class="btn btn-primary mt-3">Créer</button>
+    </form>
+  </div>
+  
